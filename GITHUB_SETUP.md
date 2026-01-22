@@ -75,7 +75,7 @@ After pushing to GitHub, collaborators need to:
    ```
 
 3. **Set up environment variables**:
-   
+
    **Backend** (`backend/.env`):
    ```bash
    cp backend/.env.example backend/.env
@@ -92,7 +92,7 @@ After pushing to GitHub, collaborators need to:
    ```bash
    # Using Docker (recommended)
    docker-compose up -d postgres
-   
+
    # Or install PostgreSQL manually
    ```
 
@@ -140,7 +140,7 @@ When deploying to production:
    ```bash
    # Linux/Mac
    openssl rand -base64 32
-   
+
    # Windows PowerShell
    $bytes = New-Object byte[] 32
    [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($bytes)
