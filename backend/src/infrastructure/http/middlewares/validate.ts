@@ -5,8 +5,8 @@ import { AppError } from './app-error';
  * Validation middleware factory
  * Can be used with validation libraries like Zod, Joi, or Yup
  */
-export const validate = (schema: any) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+export const validate = (_schema: any) => {
+  return async (_req: Request, _res: Response, next: NextFunction) => {
     try {
       // Example with Zod (install zod package to use)
       // await schema.parseAsync({
