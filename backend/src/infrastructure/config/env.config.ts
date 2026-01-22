@@ -32,6 +32,24 @@ const getEnvVariable = (key: string, defaultValue?: string): string => {
   return value;
 };
 
+const validateProductionSecrets = () => {
+  if (process.env.NODE_ENV === 'production') {
+    const jwtSecret = process.env.JWT_SECRET || '';
+    const refreshSecret = process.env.REFRESH_TOKEN_SECRET || '';
+
+    // Check if secrets are still using default/weak values
+    if (jwtSecret.includes('change-this') || jwtSecret.length < 32) {
+      throw new Error('Production JWT_SECRET must be a strong secret (min 32 characters)');
+    }
+    if (refreshSecret.includes('change-this') || refreshSecret.length < 32) {
+      throw new Error('Production REFRESH_TOKEN_SECRET must be a strong secret (min 32 characters)');
+    }
+  }
+};
+
+// Validate production secrets on startup
+validateProductionSecrets();
+
 export const config: Config = {
   env: getEnvVariable('NODE_ENV', 'development'),
   port: parseInt(getEnvVariable('PORT', '3001'), 10),
