@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "npx prisma generate && tsc",
+    "build": "npx prisma generate && tsc && tsc-alias",
     "start": "node dist/server.js",
     "start:prod": "npx prisma migrate deploy && node dist/server.js",
     "postinstall": "prisma generate",
@@ -60,6 +60,7 @@
     "jest": "^29.7.0",
     "@types/jest": "^29.5.11",
     "ts-jest": "^29.1.1",
-    "prisma": "^5.7.1"
+    "prisma": "^5.7.1",
+    "tsc-alias": "^1.8.8"
   }
 }

@@ -14,13 +14,14 @@
     "build": "npm run build --workspaces",
     "build:backend": "npm run build --workspace=backend",
     "build:frontend": "npm run build --workspace=frontend",
-    "railway:build": "cd backend && npm install && npx prisma generate && tsc",
+    "railway:build": "cd backend && npm install && npx prisma generate && tsc && npx tsc-alias",
     "railway:start": "npm run start:prod --workspace=backend",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "tsc-alias": "^1.8.16"
   },
   "engines": {
     "node": ">=18.0.0",
