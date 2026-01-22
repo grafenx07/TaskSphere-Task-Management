@@ -4,6 +4,7 @@ import { config } from '@infrastructure/config/env.config';
 import { disconnectPrisma, checkDatabaseConnection } from '@infrastructure/database/prisma';
 
 const PORT = config.port;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // Start server with database health check
 const startServer = async () => {
@@ -14,7 +15,7 @@ const startServer = async () => {
       throw new Error('Database connection failed');
     }
 
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, HOST, () => {
       console.log(`
   ╔═══════════════════════════════════════╗
   ║   TaskSphere API Server Started      ║
