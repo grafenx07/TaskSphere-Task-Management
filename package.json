@@ -15,7 +15,7 @@
     "build:backend": "npm run build --workspace=backend",
     "build:frontend": "npm run build --workspace=frontend",
     "railway:build": "cd backend && npm install && npx prisma generate && tsc",
-    "railway:start": "cd backend && npx prisma migrate deploy && node dist/server.js",
+    "railway:start": "npm run start:prod --workspace=backend",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces"
   },
